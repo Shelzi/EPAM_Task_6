@@ -37,14 +37,6 @@ public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AbstractPurchase that = (AbstractPurchase) o;
-        return number == that.number && Objects.equals(product, that.product);
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hash(product, number);
     }
