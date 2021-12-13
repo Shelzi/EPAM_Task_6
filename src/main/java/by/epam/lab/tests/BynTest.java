@@ -1,10 +1,13 @@
-package by.epam.lab;
+package by.epam.lab.tests;
 
+import by.epam.lab.Byn;
+import by.epam.lab.Product;
+import by.epam.lab.RoundMethod;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class BynTests {
+public class BynTest {
     @Test
     public void multiplyOnDoubleTest() {
         Byn expected = new Byn(700);

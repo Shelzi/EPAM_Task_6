@@ -1,5 +1,8 @@
-package by.epam.lab;
+package by.epam.lab.tests;
 
+import by.epam.lab.Byn;
+import by.epam.lab.Product;
+import by.epam.lab.TransportExpensesPurchase;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

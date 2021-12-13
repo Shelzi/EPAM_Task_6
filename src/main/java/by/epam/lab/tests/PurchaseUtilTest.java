@@ -1,10 +1,11 @@
-package by.epam.lab;
+package by.epam.lab.tests;
 
+import by.epam.lab.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class UtilTests {
+public class PurchaseUtilTest {
     @Test
     public void binarySearchTest() {
         Product product = new Product("Milk", new Byn(500));
