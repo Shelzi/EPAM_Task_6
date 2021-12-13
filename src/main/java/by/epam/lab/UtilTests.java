@@ -8,11 +8,11 @@ public class UtilTests {
     @Test
     public void binarySearchTest() {
         Product product = new Product("Milk", new Byn(500));
-        AbstractPurchase key = new PriceDiscountPurchase(product, 1, new Byn()); // 5.00
-        AbstractPurchase purchaseOne = new PriceDiscountPurchase(product, 1, new Byn(100)); //3.00
-        AbstractPurchase purchaseTwo = new PriceDiscountPurchase(product, 1, new Byn(1)); //3.50
-        AbstractPurchase purchaseThree = new PercentDiscountPurchase(product, 3, 20.0); //12.0
-        AbstractPurchase purchaseFore = new TransportExpensesPurchase(product, 8); //45.0
+        AbstractPurchase key = new PriceDiscountPurchase(product, 1, new Byn());
+        AbstractPurchase purchaseOne = new PriceDiscountPurchase(product, 1, new Byn(100));
+        AbstractPurchase purchaseTwo = new PriceDiscountPurchase(product, 1, new Byn(1));
+        AbstractPurchase purchaseThree = new PercentDiscountPurchase(product, 3, 20.0);
+        AbstractPurchase purchaseFore = new TransportExpensesPurchase(product, 8);
 
         //purchase with cost 5 is in the middle
         AbstractPurchase[] middleSet = {purchaseFore, purchaseThree, key, purchaseOne};
