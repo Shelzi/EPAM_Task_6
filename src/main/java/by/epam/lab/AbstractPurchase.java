@@ -6,7 +6,6 @@ public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
     private final Product product;
     private int number;
 
-
     public AbstractPurchase() {
         product = new Product();
     }
