@@ -8,6 +8,7 @@ public class Runner {
         AbstractPurchase[] purchases = new AbstractPurchase[]{
                 new PriceDiscountPurchase(product, 2, new Byn(30)),
                 new PercentDiscountPurchase(product, 15, 10.0),
+                new PercentDiscountPurchase(product, 15, 12.2),
                 new TransportExpensesPurchase(product, 5),
                 new PriceDiscountPurchase(product, 1, new Byn(1350))
         };

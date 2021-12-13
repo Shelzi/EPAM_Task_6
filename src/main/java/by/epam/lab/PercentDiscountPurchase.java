@@ -23,18 +23,11 @@ public class PercentDiscountPurchase extends AbstractPurchase {
     }
 
     @Override
-    public Byn getCost() {
-        Byn tempCost = super.getCost();
+    public Byn getFinalCost(Byn baseCost) {
         if (getNumber() >= AMOUNT_FOR_DISCOUNT) {
-             tempCost = tempCost.mul((100 - discount) / 100, RoundMethod.FLOOR, 2);
+            baseCost = baseCost.mul((100 - discount) / 100, RoundMethod.FLOOR, 0);
         }
-        return tempCost;
-    }
-
-    @Override
-    public int compareTo(AbstractPurchase o) {
-        //Inverse compare for decreasing sort
-        return o.getCost().compareTo(getCost());
+        return baseCost;
     }
 
     @Override
@@ -58,7 +51,7 @@ public class PercentDiscountPurchase extends AbstractPurchase {
     }
 
     @Override
-    public String fieldsToString(){
+    public String fieldsToString() {
         return String.format("%s;%s", super.fieldsToString(), discount);
     }
 }

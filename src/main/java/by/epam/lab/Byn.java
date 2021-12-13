@@ -55,7 +55,7 @@ public class Byn implements Comparable<Byn> {
 
     @Override
     public int compareTo(Byn o) {
-        return value - o.value;
+        return (value - o.value);
     }
 
     @Override

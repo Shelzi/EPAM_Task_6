@@ -1,12 +1,11 @@
 package by.epam.lab;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 import java.util.Objects;
 
 public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
     private final Product product;
     private int number;
+
 
     public AbstractPurchase() {
         product = new Product();
@@ -29,11 +28,13 @@ public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
         this.number = number;
     }
 
-    public Byn getCost() {
-        return product.getPrice().mul(number);
-    }
+    protected abstract Byn getFinalCost(Byn baseCost);
 
-    //public abstract Byn specialCost();
+    public Byn getCost() {
+        Byn baseCost = product.getPrice().mul(number);
+        Byn finalCost = getFinalCost(baseCost);
+        return finalCost.round(RoundMethod.FLOOR, 2);
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -49,9 +50,11 @@ public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
     }
 
     @Override
-    public abstract int compareTo(AbstractPurchase o);
+    public int compareTo(AbstractPurchase o) {
+        return getCost().compareTo(o.getCost());
+    }
 
-    public String fieldsToString() {    // TODO: fix fieldsToString() overriding in child classes, not properly working
+    public String fieldsToString() {
         return String.format("%s;%s",
                 product, number);
     }

@@ -14,8 +14,8 @@ public class PriceDiscountPurchase extends AbstractPurchase {
     }
 
     @Override
-    public Byn getCost() {
-        return super.getCost().sub(discount.mul(getNumber()));
+    public Byn getFinalCost(Byn baseCost) {
+        return baseCost.sub(discount.mul(getNumber()));
     }
 
     @Override
@@ -39,13 +39,7 @@ public class PriceDiscountPurchase extends AbstractPurchase {
     }
 
     @Override
-    public int compareTo(AbstractPurchase o) {
-        //Inverse compare for decreasing sort
-        return o.getCost().compareTo(getCost());
-    }
-
-    @Override
-    public String fieldsToString(){
+    public String fieldsToString() {
         return String.format("%s;%s", super.fieldsToString(), discount);
     }
 }
