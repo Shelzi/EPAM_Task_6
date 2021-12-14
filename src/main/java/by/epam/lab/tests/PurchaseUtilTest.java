@@ -13,7 +13,7 @@ public class PurchaseUtilTest {
         AbstractPurchase purchaseOne = new PriceDiscountPurchase(product, 1, new Byn(100));
         AbstractPurchase purchaseTwo = new PriceDiscountPurchase(product, 1, new Byn(1));
         AbstractPurchase purchaseThree = new PercentDiscountPurchase(product, 3, 20.0);
-        AbstractPurchase purchaseFore = new TransportExpensesPurchase(product, 8);
+        AbstractPurchase purchaseFore = new TransportExpensesPurchase(product, 8, new Byn(500));
 
         //purchase with cost 5 is in the middle
         AbstractPurchase[] middleSet = {purchaseFore, purchaseThree, key, purchaseOne};
