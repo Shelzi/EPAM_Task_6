@@ -4,10 +4,11 @@ import java.util.Objects;
 
 public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
     private final Product product;
-    private int number;
+    private final int number;
 
     public AbstractPurchase() {
         product = new Product();
+        number = 0;
     }
 
     public AbstractPurchase(Product product, int number) {
@@ -21,10 +22,6 @@ public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
 
     public int getNumber() {
         return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     protected abstract Byn getFinalCost(Byn baseCost);
@@ -42,7 +39,15 @@ public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
 
     @Override
     public int compareTo(AbstractPurchase o) {
-        return getCost().compareTo(o.getCost());
+        return o.getCost().compareTo(getCost());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AbstractPurchase)) return false;
+        AbstractPurchase purchase = (AbstractPurchase) o;
+        return number == purchase.number && Objects.equals(product, purchase.product);
     }
 
     public String fieldsToString() {

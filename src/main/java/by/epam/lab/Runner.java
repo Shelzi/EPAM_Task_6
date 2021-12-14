@@ -10,6 +10,7 @@ public class Runner {
                 new PercentDiscountPurchase(product, 15, 10.0),
                 new PercentDiscountPurchase(product, 15, 12.2),
                 new TransportExpensesPurchase(product, 5, new Byn(500)),
+                new TransportExpensesPurchase(product, 5, new Byn(500)),
                 new PriceDiscountPurchase(product, 1, new Byn(1350))
         };
         PurchaseUtil.printPurchases(purchases);
@@ -22,5 +23,6 @@ public class Runner {
         } else {
             System.out.println("No purchase with cost 5.00 BYN");
         }
+        System.out.println(purchases[2].equals(purchases[3 ]));
     }
 }
